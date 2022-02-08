@@ -11,7 +11,7 @@ import java.lang.reflect.Constructor;
  *
  */
 
-class MySingleton {
+/*class MySingleton {
     private static final MySingleton instance = new MySingleton();
 
     private MySingleton() {}
@@ -19,14 +19,14 @@ class MySingleton {
     public static MySingleton getInstance() {
         return instance;
     }
-}
+}*/
 
 /**
  * Protection against singleton
  * @author Balasubramaniam
  *
  */
-/*class MySingleton {
+class MySingleton {
     private static final MySingleton instance = new MySingleton();
 
     private MySingleton() {
@@ -39,13 +39,13 @@ class MySingleton {
     public static MySingleton getInstance() {
         return instance;
     }
-}*/
+}
 
 public class SingletonAndReflection {
 	public static void main(String[] args) {
         MySingleton singletonInstance = MySingleton.getInstance();
         MySingleton reflectionInstance = null;
-        
+        System.out.println("singletonInstance hashCode: " + singletonInstance.hashCode());
         try {
             Constructor[] constructors = MySingleton.class.getDeclaredConstructors();
             for (Constructor constructor : constructors) {
@@ -56,7 +56,7 @@ public class SingletonAndReflection {
             throw new RuntimeException(ex);
         }
 
-        System.out.println("singletonInstance hashCode: " + singletonInstance.hashCode());
+       
         System.out.println("reflectionInstance hashCode: " + reflectionInstance.hashCode());
     }
 }

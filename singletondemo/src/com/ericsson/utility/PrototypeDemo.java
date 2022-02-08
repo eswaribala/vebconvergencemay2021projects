@@ -11,6 +11,7 @@ public class PrototypeDemo {
 		UserDetails users = new UserDetails();
 		users.getUsers();
 
+		System.out.println("users List before clone: " + users.getUsersList());
 		// Use the clone method to get the Employee object
 		UserDetails usersNew;
 		try {
